@@ -1,0 +1,3 @@
+db:
+  database: theatre_test
+  max_connections: 1
