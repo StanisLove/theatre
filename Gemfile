@@ -24,6 +24,12 @@ gem 'dry-validation'
 gem 'activesupport', '~> 6.0.0', require: false
 gem 'fast_jsonapi'
 
+group :development, :test do
+  gem 'pry-byebug'
+  gem 'pry-rescue'
+  gem 'pry-stack_explorer'
+end
+
 group :test do
   gem 'rspec'
   gem 'factory_bot'
