@@ -10,7 +10,7 @@ RSpec.describe Spectacle do
   end
 
   context 'with same name' do
-    before { create :spectacle }
+    before { create :spectacle, title: spectacle.title }
 
     specify { expect(spectacle).not_to be_valid }
   end

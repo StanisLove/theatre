@@ -19,12 +19,18 @@ module ApplicationLoader
   end
 
   def require_app
+    require_helpers
     require_file 'config/application'
     require_dir 'app'
   end
 
   def init_app
     require_dir 'config/initializers'
+  end
+
+  def require_helpers
+    require_file 'app/helpers/validations'
+    require_dir 'app/helpers'
   end
 
   def require_file(path)
