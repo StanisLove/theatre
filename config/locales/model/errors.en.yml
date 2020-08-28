@@ -1,0 +1,6 @@
+en:
+  model:
+    errors:
+      spectacle:
+        title:
+          blank: 'Set the title of the spectacle'

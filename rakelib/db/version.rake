@@ -1,7 +1,7 @@
 namespace :db do
   desc "Prints current schema version"
   task :version => :settings do
-    require 'sequel'
+    require 'sequel/core'
 
     version = Sequel.connect(Settings.db.to_hash) do |db|
       db[:schema_migrations].first[:filename] if db.tables.include?(:schema_migrations)
