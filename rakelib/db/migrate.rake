@@ -1,6 +1,6 @@
 namespace :db do
   desc 'Run database migrations'
-  task :migrate => :settings do |t, args|
+  task :migrate => :settings do
     require 'sequel/core'
 
     # Create blank task to avoid error
@@ -14,5 +14,6 @@ namespace :db do
     Sequel.connect(Settings.db.to_hash) do |db|
       Sequel::Migrator.run(db, migrations, target: version)
     end
+    Rake::Task['db:version'].execute
   end
 end
