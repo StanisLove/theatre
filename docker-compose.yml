@@ -31,12 +31,12 @@ services:
     restart: always
     image: postgres:10.3
     volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
       - postgres:/var/lib/postgresql/data
       - ./log:/root/log:cached
     ports:
-      - 5435:5432
+      - 5432:5432
     environment:
-      - POSTGRES_DB=theatre_development
       - POSTGRES_USER=username
       - POSTGRES_PASSWORD=password
       - PSQL_HISTFILE=/root/log/.psql_history
