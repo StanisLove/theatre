@@ -1,6 +1,6 @@
 namespace :db do
   desc 'Run database migrations'
-  task :migrate do |t, args|
+  task :migrate => :settings do |t, args|
     require 'sequel/core'
 
     # Create blank task to avoid error
