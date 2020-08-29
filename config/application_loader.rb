@@ -21,6 +21,7 @@ module ApplicationLoader
   def require_app
     require_helpers
     require_file 'config/application'
+    require_file 'app/operations/base'
     require_dir 'app'
   end
 
@@ -29,7 +30,6 @@ module ApplicationLoader
   end
 
   def require_helpers
-    require_file 'app/helpers/validations'
     require_dir 'app/helpers'
   end
 

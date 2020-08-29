@@ -19,9 +19,9 @@ namespace :db do
 
       # Create demonstrations
       db[:spectacles].select(Sequel[:id].as(:spectacle_id)).all.zip([
-        { dates: '[2020-09-01, 2020-09-10]' },
-        { dates: '[2020-09-11, 2020-09-15]' },
-        { dates: '[2020-09-21, 2020-09-30]' },
+        { start_date: '2020-09-01', finish_date: '2020-09-10' },
+        { start_date: '2020-09-11', finish_date: '2020-09-15' },
+        { start_date: '2020-09-21', finish_date: '2020-09-30' },
       ]).map { |arr| arr.reduce(&:merge) }.each do |demo|
         db[:demonstrations].insert_conflict.insert(
           **demo, created_at: Time.now, updated_at: Time.now
@@ -29,7 +29,7 @@ namespace :db do
       end
 
       # Check gist index
-      puts db[:demonstrations].where(Sequel.lit("dates @> '2020-09-23'::date")).explain
+      puts db[:demonstrations].where(Sequel.lit("daterange(start_date, finish_date, '[]') @> '2020-09-23'::date")).explain
     end
 
     puts 'ok'

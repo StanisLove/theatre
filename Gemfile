@@ -18,8 +18,8 @@ gem 'config'
 gem 'pg'
 gem 'sequel'
 
-gem 'dry-initializer'
 gem 'dry-validation'
+gem 'dry-monads'
 
 gem 'activesupport', '~> 6.0.0', require: false
 gem 'fast_jsonapi'

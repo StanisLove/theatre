@@ -3,26 +3,28 @@ class SpectacleRoutes < Application
 
   namespace '/spectacles' do
     get do
-      page = params[:page].presence || 1
-      spectacles = Spectacle.reverse_order(:updated_at)
-      spectacles = spectacles.paginate(page.to_i, Settings.pagination.page_size)
-      serializer = SpectacleSerializer.new(spectacles.all, links: pagination_links(spectacles))
+      page       = params[:page].presence || 1
+      page_size  = Settings.pagination.page_size
+      serializer = SpectacleSerializer
 
-      json serializer.serializable_hash
+      Spectacle.reverse_order(:updated_at)
+        .then { |s| s.paginate(page.to_i, page_size) }
+        .then { |s| serializer.new(s.all, links: pagination_links(s)) }
+        .then { |s| json(s.serializable_hash) }
     end
 
     post do
-      params = validate_with!(SpectacleParamsContract)
-      spectacle = Spectacle.new(params[:spectacle])
+      operation = Operations::Spectacles::Create.new
+      result    = operation.call(params[:spectacle])
 
-      if spectacle.save(raise_on_failure: false)
-        serializer = SpectacleSerializer.new(spectacle)
-
+      case result
+      when Success
         status 201
-        json serializer.serializable_hash
-      else
+        spectacle = SpectacleSerializer.new(result.value!)
+        json spectacle.serializable_hash
+      when Failure
         status 422
-        error_response spectacle
+        error_response result.failure
       end
     end
   end
