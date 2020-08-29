@@ -3,6 +3,7 @@ class Demonstration < Sequel::Model
 
   def validate
     super
-    validates_presence :dates, message: I18n.t(:blank, scope: 'model.errors.demonstration.dates')
+    validates_presence :start, message: I18n.t(:blank, scope: 'model.errors.demonstration.start')
+    validates_presence :finish, message: I18n.t(:blank, scope: 'model.errors.demonstration.finish')
   end
 end

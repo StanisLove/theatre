@@ -5,5 +5,8 @@ en:
         title:
           blank: 'Set the title of the spectacle'
       demonstration:
-        dates:
-          blank: 'Set the demonstration period'
+        start:
+          blank: 'Set the demonstration day start'
+      demonstration:
+        finish:
+          blank: 'Set the demonstration day finish'

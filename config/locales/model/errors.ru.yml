@@ -5,5 +5,8 @@ ru:
         title:
           blank: 'Укажите название спектакля'
       demonstration:
-        dates:
-          blank: 'Укажите период показа'
+        start:
+          blank: 'Укажите дату начала'
+      demonstration:
+        finish:
+          blank: 'Укажите дату окончания'

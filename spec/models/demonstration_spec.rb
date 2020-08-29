@@ -1,14 +1,20 @@
 RSpec.describe Demonstration do
   let(:spectacle) { create :spectacle }
-  let(:demo) { build :demonstration, spectacle: spectacle }
+  let(:start) {'2020-10-01' }
+  let(:finish) { '2020-10-10' }
+  let(:demo) { build :demonstration, start: start, finish: finish, spectacle: spectacle }
 
-  specify { expect(demo).not_to be_valid }
+  specify { expect(demo).to be_valid }
 
-  context 'with dates' do
-    let(:demo) do
-      build :demonstration, from: '2020-10-01', to: '2020-10-10', spectacle: spectacle
-    end
+  context 'without start date' do
+    let(:start) { nil }
 
-    specify { expect(demo).to be_valid }
+    specify { expect(demo).not_to be_valid }
+  end
+
+  context 'without finish date' do
+    let(:start) { nil }
+
+    specify { expect(demo).not_to be_valid }
   end
 end
