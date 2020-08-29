@@ -9,7 +9,7 @@ class DemonstrationRoutes < Application
       page_size  = Settings.pagination.page_size
       serializer = DemonstrationSerializer
 
-      Demonstration.reverse_order(:updated_at)
+      Demonstration.eager(:spectacle).reverse_order(:updated_at)
                    .then { |demos| demos.paginate(page.to_i, page_size) }
                    .then { |demos| serializer.new(demos.all, links: pagination_links(demos)) }
                    .then { |demos| json(demos.serializable_hash) }
