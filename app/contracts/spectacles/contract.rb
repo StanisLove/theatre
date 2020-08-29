@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spectacles
   class Contract < Dry::Validation::Contract
     params do

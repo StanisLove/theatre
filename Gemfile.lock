@@ -7,6 +7,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
+    ast (2.4.0)
     backports (3.15.0)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
@@ -72,12 +73,16 @@ GEM
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     interception (0.5)
+    jaro_winkler (1.5.4)
     method_source (1.0.0)
     minitest (5.14.1)
     multi_json (1.15.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.5.2)
+    parallel (1.19.1)
+    parser (2.7.1.1)
+      ast (~> 2.4.0)
     pg (1.2.3)
     pry (0.13.1)
       coderay (~> 1.1)
@@ -98,7 +103,9 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rainbow (3.0.0)
     rake (13.0.1)
+    rexml (3.2.4)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
@@ -112,6 +119,17 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.3)
+    rubocop (0.82.0)
+      jaro_winkler (~> 1.5.1)
+      parallel (~> 1.10)
+      parser (>= 2.7.0.1)
+      rainbow (>= 2.2.2, < 4.0)
+      rexml
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 2.0)
+    rubocop-rspec (1.38.1)
+      rubocop (>= 0.68.1)
+    ruby-progressbar (1.10.1)
     ruby2_keywords (0.0.2)
     sequel (5.35.0)
     sinatra (2.0.8.1)
@@ -130,6 +148,7 @@ GEM
     tilt (2.0.10)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
+    unicode-display_width (1.7.0)
     zeitwerk (2.4.0)
 
 PLATFORMS
@@ -152,6 +171,8 @@ DEPENDENCIES
   rack-test
   rake
   rspec
+  rubocop
+  rubocop-rspec
   sequel
   sinatra
   sinatra-contrib

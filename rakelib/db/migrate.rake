@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 namespace :db do
   desc 'Run database migrations'
-  task :migrate => :settings do
+  task migrate: :settings do
     require 'sequel/core'
 
     # Create blank task to avoid error
-    ARGV.each { |a| task a.to_sym do ; end }
+    ARGV.each { |a| task a.to_sym do; end }
 
     version    = ARGV[1]&.to_i
     migrations = File.expand_path('../../db/migrations', __dir__)

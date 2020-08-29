@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Operations
   module Demonstrations
     class Create < Operations::Base

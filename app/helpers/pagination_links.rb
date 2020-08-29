@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 module PaginationLinks
   def pagination_links(dataset)
     return {} if dataset.pagination_record_count.zero?
 
     {
       first: pagination_link(page: 1),
-      last:  pagination_link(page: dataset.page_count),
-      next:  pagination_link(page: dataset.next_page.presence),
-      prev:  pagination_link(page: dataset.prev_page.presence)
+      last: pagination_link(page: dataset.page_count),
+      next: pagination_link(page: dataset.next_page.presence),
+      prev: pagination_link(page: dataset.prev_page.presence)
     }.compact
   end
 

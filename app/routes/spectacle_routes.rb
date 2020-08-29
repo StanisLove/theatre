@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SpectacleRoutes < Application
   helpers PaginationLinks
 
@@ -8,9 +10,9 @@ class SpectacleRoutes < Application
       serializer = SpectacleSerializer
 
       Spectacle.reverse_order(:updated_at)
-        .then { |s| s.paginate(page.to_i, page_size) }
-        .then { |s| serializer.new(s.all, links: pagination_links(s)) }
-        .then { |s| json(s.serializable_hash) }
+               .then { |s| s.paginate(page.to_i, page_size) }
+               .then { |s| serializer.new(s.all, links: pagination_links(s)) }
+               .then { |s| json(s.serializable_hash) }
     end
 
     post do

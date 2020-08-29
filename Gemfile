@@ -1,28 +1,33 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-ruby "2.6.3"
+ruby '2.6.3'
 
-gem 'rake'
 gem 'puma'
+gem 'rake'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
 
-gem 'i18n'
 gem 'config'
+gem 'i18n'
 
 gem 'pg'
 gem 'sequel'
 
-gem 'dry-validation'
 gem 'dry-monads'
+gem 'dry-validation'
 
 gem 'activesupport', '~> 6.0.0', require: false
 gem 'fast_jsonapi'
+
+group :development do
+  gem 'rubocop', require: false
+  gem 'rubocop-rspec', require: false
+end
 
 group :development, :test do
   gem 'pry-byebug'
@@ -31,8 +36,8 @@ group :development, :test do
 end
 
 group :test do
-  gem 'rspec'
+  gem 'database_cleaner-sequel'
   gem 'factory_bot'
   gem 'rack-test'
-  gem 'database_cleaner-sequel'
+  gem 'rspec'
 end

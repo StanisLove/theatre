@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe SpectacleRoutes, type: :routes do
   describe 'GET /spectacles' do
     before do
@@ -25,7 +27,7 @@ RSpec.describe SpectacleRoutes, type: :routes do
       let(:params) do
         {
           title: '',
-          description: 'Description',
+          description: 'Description'
         }
       end
 
@@ -40,7 +42,7 @@ RSpec.describe SpectacleRoutes, type: :routes do
       let(:params) do
         {
           title: 'Spectacle title',
-          description: 'Spectacle description',
+          description: 'Spectacle description'
         }
       end
 
@@ -55,7 +57,7 @@ RSpec.describe SpectacleRoutes, type: :routes do
         post '/spectacles', spectacle: params
 
         expect(response_body['data']).to a_hash_including(
-          'id'   => Spectacle.last.id.to_s,
+          'id' => Spectacle.last.id.to_s,
           'type' => 'spectacle'
         )
       end

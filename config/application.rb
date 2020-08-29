@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Application < Sinatra::Base
   include Dry::Monads[:result]
 

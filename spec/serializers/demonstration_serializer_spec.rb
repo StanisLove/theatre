@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe DemonstrationSerializer do
   subject { described_class.new([demonstration], links: links) }
 

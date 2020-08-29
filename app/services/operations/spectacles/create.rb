@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Operations
   module Spectacles
     class Create < Operations::Base

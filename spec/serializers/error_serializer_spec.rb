@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe ErrorSerializer do
   subject { described_class }
 

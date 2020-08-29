@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe DemonstrationRoutes, type: :routes do
   describe 'GET /demonstrations' do
     before do
@@ -38,13 +40,17 @@ RSpec.describe DemonstrationRoutes, type: :routes do
       end
 
       context 'with wrong dates' do
-        let(:params) { Hash[finish_date: start_date, start_date: finish_date, spectacle_id: spectacle.id] }
+        let(:params) do
+          Hash[finish_date: start_date, start_date: finish_date, spectacle_id: spectacle.id]
+        end
 
         it_behaves_like 'unprocessable'
       end
 
       context 'with occupied dates' do
-        let(:params) { Hash[finish_date: finish_date, start_date: start_date, spectacle_id: spectacle.id] }
+        let(:params) do
+          Hash[finish_date: finish_date, start_date: start_date, spectacle_id: spectacle.id]
+        end
 
         before { create :demonstration, start_date: finish_date, finish_date: '2020-11-10' }
 
@@ -53,20 +59,21 @@ RSpec.describe DemonstrationRoutes, type: :routes do
     end
 
     context 'valid parameters' do
-      let(:params) { Hash[finish_date: finish_date, start_date: start_date, spectacle_id: spectacle.id] }
+      let(:params) do
+        Hash[finish_date: finish_date, start_date: start_date, spectacle_id: spectacle.id]
+      end
 
       it 'creates a demonstration', :aggregate_failures do
         expect { post '/demonstrations', demonstration: params }
           .to change(Demonstration, :count).from(0).to(1)
         expect(last_response.status).to eq(201)
-
       end
 
       it 'returns a demonstration' do
         post '/demonstrations', demonstration: params
 
         expect(response_body['data']).to a_hash_including(
-          'id'   => Demonstration.last.id.to_s,
+          'id' => Demonstration.last.id.to_s,
           'type' => 'demonstration'
         )
       end

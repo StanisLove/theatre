@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DemonstrationRoutes < Application
   helpers PaginationLinks
 
@@ -8,9 +10,9 @@ class DemonstrationRoutes < Application
       serializer = DemonstrationSerializer
 
       Demonstration.reverse_order(:updated_at)
-        .then { |demos| demos.paginate(page.to_i, page_size) }
-        .then { |demos| serializer.new(demos.all, links: pagination_links(demos)) }
-        .then { |demos| json(demos.serializable_hash) }
+                   .then { |demos| demos.paginate(page.to_i, page_size) }
+                   .then { |demos| serializer.new(demos.all, links: pagination_links(demos)) }
+                   .then { |demos| json(demos.serializable_hash) }
     end
 
     post do

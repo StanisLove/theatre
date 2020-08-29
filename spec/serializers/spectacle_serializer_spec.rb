@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe SpectacleSerializer do
   subject { described_class.new([spectacle], links: links) }
 
