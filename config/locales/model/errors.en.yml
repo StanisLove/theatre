@@ -4,3 +4,6 @@ en:
       spectacle:
         title:
           blank: 'Set the title of the spectacle'
+      demonstration:
+        dates:
+          blank: 'Set the demonstration period'

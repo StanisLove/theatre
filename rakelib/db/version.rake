@@ -4,7 +4,9 @@ namespace :db do
     require 'sequel/core'
 
     version = Sequel.connect(Settings.db.to_hash) do |db|
-      db[:schema_migrations].first[:filename] if db.tables.include?(:schema_migrations)
+      if db.tables.include?(:schema_migrations)
+        db[:schema_migrations].flat_map(&:values).sort.last
+      end
     end
 
     puts "Schema Version: #{version || 0}"

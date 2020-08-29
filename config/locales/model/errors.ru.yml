@@ -4,3 +4,6 @@ ru:
       spectacle:
         title:
           blank: 'Укажите название спектакля'
+      demonstration:
+        dates:
+          blank: 'Укажите период показа'
