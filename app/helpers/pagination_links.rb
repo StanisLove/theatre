@@ -7,7 +7,7 @@ module PaginationLinks
       last:  pagination_link(page: dataset.page_count),
       next:  pagination_link(page: dataset.next_page.presence),
       prev:  pagination_link(page: dataset.prev_page.presence)
-    }
+    }.compact
   end
 
   private
