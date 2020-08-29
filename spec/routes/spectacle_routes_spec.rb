@@ -1,5 +1,5 @@
 RSpec.describe SpectacleRoutes, type: :routes do
-  describe 'GET /v1' do
+  describe 'GET /spectacles' do
     before do
       create_list(:spectacle, 3)
     end

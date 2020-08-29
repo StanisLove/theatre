@@ -15,7 +15,7 @@ class DemonstrationRoutes < Application
 
     post do
       operation = Operations::Demonstrations::Create.new
-      result    = operation.call(params)
+      result    = operation.call(params[:demonstration])
 
       case result
       when Success

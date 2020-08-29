@@ -4,9 +4,7 @@ module Operations
       private
 
       def validate(params)
-        contract = Demonstrations::Contract.new(
-          free_dates_validator: Demonstrations::FreeDatesValidator
-        )
+        contract = ::Demonstrations::Contract.new
         contract.call(params).to_monad
       end
 

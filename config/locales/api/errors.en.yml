@@ -1,6 +1,6 @@
-ru:
+en:
   api:
     errors:
-      not_found: 'Запрашиваемый ресурс не найден'
-      not_unique: 'Данный ресурс уже существует'
-      missing_parameters: 'В запросе отсутствуют необходимые параметры'
+      not_found: 'Requested resource not found'
+      not_unique: 'This resource already exists'
+      missing_parameters: 'The request is missing required parameters'
