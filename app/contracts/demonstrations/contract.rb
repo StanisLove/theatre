@@ -1,7 +1,7 @@
 module Demonstrations
   class Contract < Dry::Validation::Contract
     params do
-      required(:spectacle_id).filled(:string)
+      required(:spectacle_id).filled(:integer)
       required(:start_date).filled(:date)
       required(:finish_date).filled(:date)
     end

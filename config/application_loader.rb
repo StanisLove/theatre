@@ -21,7 +21,7 @@ module ApplicationLoader
   def require_app
     require_helpers
     require_file 'config/application'
-    require_file 'app/operations/base'
+    require_file 'app/services/operations/base'
     require_dir 'app/contracts'
     require_dir 'app'
   end
