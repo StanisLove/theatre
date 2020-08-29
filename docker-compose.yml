@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    image: theatre_app:1.0.1
+    image: evolsinats/theatre_app:1.0.1
     tmpfs:
       - /tmp
     stdin_open: true

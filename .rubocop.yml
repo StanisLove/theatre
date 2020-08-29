@@ -4,6 +4,7 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*_spec.rb'
     - 'rakelib/db/seeds.rake'
+    - 'app/routes/**/*'
 
 Style/Documentation:
   Enabled: false

@@ -29,5 +29,10 @@ class DemonstrationRoutes < Application
         error_response result.failure
       end
     end
+
+    delete '/:id' do
+      Demonstration[params[:id]]&.destroy
+      status 204
+    end
   end
 end

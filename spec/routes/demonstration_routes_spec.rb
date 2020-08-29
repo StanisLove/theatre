@@ -79,4 +79,14 @@ RSpec.describe DemonstrationRoutes, type: :routes do
       end
     end
   end
+
+  describe 'DELETE /demonstrations/:id' do
+    let!(:demonstration) { create :demonstration }
+
+    it 'destroys demonstration', :aggregate_failures do
+      expect { delete "/demonstrations/#{demonstration.id}" }
+        .to change(Demonstration, :count).by(-1)
+      expect(last_response.status).to eq(204)
+    end
+  end
 end
