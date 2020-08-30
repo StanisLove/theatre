@@ -9,6 +9,11 @@ docker-compose up -d
 ```
 it will starts Postgres on port `5432` and puma on port `3500`
 
+Add this line to `/etc/hosts` if you want to devlop from host instead docker container.
+```
+127.0.0.1   postgres
+```
+
 ## Useful commands
 Run migrations
 ```bash
